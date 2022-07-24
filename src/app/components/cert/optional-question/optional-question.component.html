@@ -1,0 +1,39 @@
+<div *ngIf="data; else wait">
+
+  <div style="max-width: 100%;">
+    <p *ngFor="let resto of data.QuestionText" [innerHtml]="resto" style="max-width: 100%;overflow: hidden;">
+    </p>
+  </div>
+
+  <div *ngIf="IsMultiCorrect()">
+    <label *ngFor="let resto  of data.AnswerOption, let i =index">
+      <input type="checkbox" name="chkage" (click)="onAnswer()" id={{i}}>
+      <span>{{resto}}</span>
+    </label>
+  </div>
+
+  <div *ngIf="!IsMultiCorrect()">
+    <label *ngFor="let resto of data.AnswerOption; let i =index ">
+      <input type="radio" id={{i}} name="chkage" (click)="onAnswer()" title="asdf" value="30">
+      <span class="radiobtn">{{resto}}</span>
+    </label>
+  </div>
+  <div class="or-seperator"><i>
+      <button type="button" class="btn btn-info" (click)="toggleDisplay()"> Check your Answer </button>
+    </i></div>
+  <div style="padding-left: 18px; font-size: 12px; font-weight: bold;" *ngIf="!isAnswerHidden">
+    <p *ngIf="isAnswerCorrect" style="color: green;font-weight: bold;font-size: larger;">Your answer is correct</p>
+    <p *ngIf="!isAnswerCorrect" style="color: red;font-weight: bold;font-size: larger;">Your answer is NOT correct</p>
+    <span style="color: green;font-size: larger;">
+      Correct Answer's are : <span *ngFor="let resto of data.CorrectAnswer;let i=first" style="font-weight: lighter;">
+        <b style="font-size: x-large;" *ngIf="!i"> | </b> {{data.AnswerOption[resto]}} </span>
+    </span>
+    <br>
+    <b>--------------------- Details -------------------------</b>
+    <p *ngFor="let Detail of data.Details" [innerHtml]="Detail"></p>
+
+  </div>
+</div>
+<ng-template #wait>
+  <i class="fa fa-search"></i> wait
+</ng-template>

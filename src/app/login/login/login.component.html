@@ -1,0 +1,67 @@
+<div class="or-seperator1"><i>Login</i></div>
+
+<section id="mu-contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mu-contact-area">
+         <!-- start title -->
+          <div class="mu-title">
+           <!-- <h3><i class="fa fa-user fa-fw" aria-hidden="true"></i></h3> -->
+         </div>
+        <!-- <h3>Login</h3> -->
+         <!-- end title -->
+         <!-- start contact content -->
+         <div class="mu-contact-content">           
+           <div class="row">
+            <div class="col-md-4"></div>
+             <div class="col-md-4">
+               <div class="mu-contact-left">
+                <form class="login-form"  (ngSubmit)="formsubmit(f)" #f="ngForm" >
+                  
+                  <div class="form-group">
+                   <!-- <label for="exampleInputEmail1" >Username</label>
+                   <input type="text" #username="ngModel" class="form-control"   
+                   loginNameValidator name="username"  placeholder="Email-Id Or Mobile No" id="username" ngModel required/> -->
+                   <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                    <input type="text" #username="ngModel" class="form-control"   
+                   loginNameValidator name="username"  placeholder="Email-Id Or Mobile No" id="username" ngModel required/> 
+                  </div>
+                     <span *ngIf="username.invalid && username.touched" class="errorDisplay" style="padding-left: 45px;"> Either email or mobile no. is required</span> 
+                   
+                 </div>
+                 <div class="form-group">
+                   <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
+                    <input type="password" #password="ngModel" class="form-control" id="password" name="password" placeholder="Password" ngModel required/>
+                    
+                  </div>
+                  <span *ngIf="password.invalid && password.touched" class="errorDisplay"  style="padding-left: 45px;"> Password is Required </span>  
+                 </div> 
+                   <div class="form-check righ">
+                   <br>
+                   <button type="submit" class="mu-fulllength-btn-invalid" [class.mu-fulllength-btn]="f.valid" [disabled]="!f.valid"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
+                 </div>
+                 
+                 </form>
+                   <a style="float: right;border-bottom: 1px solid black;font-size: x-small;" href="reset">Reset Password</a>
+                   <br><div class="or-seperator"><i>or</i></div>
+
+                   <div class="text-center social-btn">
+                    <a (click)="loginWithFacebook()" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> - Sign in with <b>Facebook</b></a>
+                    <a (click)="loginWithLinkedin()" class="btn btn-info btn-block"><i class="fa fa-linkedin"></i> - Sign in with <b>Linkedin</b></a>
+                    <a (click)="loginWithGoogle()" class="btn btn-danger btn-block"><i class="fa fa-google"></i> - Sign in with <b> Google &nbsp;</b></a>
+                </div>
+               </div>
+             </div>
+             
+           </div>
+         </div>
+         <!-- end contact content -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End contact  -->

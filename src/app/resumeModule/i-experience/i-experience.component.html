@@ -1,0 +1,235 @@
+
+
+
+   <!-- <p>{{d.SummaryText}}</p> -->
+
+
+   <div class="container">
+    <div class="row">
+        <div class="Form group" >
+             
+      &nbsp;
+                 <div  *ngIf="!edit;else editTemp">
+                  <p class="text-center h4 fw-bold mb-5 mx-1 mx-md-4 mt-4" >Fill the form to Experience
+                  <span style="float: right;">
+                    <a >
+                      <i class="fa fa-edit" (click)="editform()"style="font-size:32px;color:green"></i> 
+                    </a>
+                
+                  </span>
+                  </p>
+      &nbsp;            
+          <div class="row">
+            <div class="col-sm-3">
+              Position:
+            </div>
+          <div class="col-sm-3">
+          {{experi.Position}}
+          </div>
+          <!-- </div> -->
+          <!-- <div class="row"> -->
+            <div class="col-sm-3">
+              Responsibilities:
+            </div>
+          <div class="col-sm-3">
+          {{experi.Responsibilities}}
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              Province:
+            </div>
+          <div class="col-sm-3">
+          {{experi.Province}}
+          </div>
+          <!-- </div> -->
+          <!-- <div class="row"> -->
+              <div class="col-sm-3">
+                City:
+              </div>
+            <div class="col-sm-3">
+            {{experi.City}}
+            </div>
+            </div>
+        
+          <div class="row">
+            <div class="col-sm-3">
+              Country:
+            </div>
+          <div class="col-sm-3">
+          {{experi.Country}}
+          </div>
+          <!-- </div> -->
+     
+            <!-- <div class="row"> -->
+              <div class="col-sm-3">
+                ZipCode:
+              </div>
+            <div class="col-sm-3">
+            {{experi.ZipCode}}
+            </div>
+            </div>
+              
+               
+                
+                <div class="row">
+                  <div class="col-sm-3">
+                    OrganizationUrl:
+                  </div>
+                <div class="col-sm-3">
+                {{experi.OrganizationUrl}}
+                </div>
+                <!-- </div>  -->
+                  
+                  <!-- <div class="row"> -->
+                    <div class="col-sm-3">
+                      OrganizationName:
+                    </div>
+                  <div class="col-sm-3">
+                  {{experi.OrganizationName}}
+                  </div>
+                  </div> 
+                    
+                    <div class="row">
+                      <div class="col-sm-3">
+                        ExperienceFrom:
+                      </div>
+                    <div class="col-sm-3">
+                    {{experi.ExperienceFrom}}
+                    </div>
+                    <!-- </div>  -->
+                      
+                      <!-- <div class="row"> -->
+                        <div class="col-sm-3">
+                          ExperienceTo:
+                        </div>
+                      <div class="col-sm-3">
+                      {{experi.ExperienceTo}}
+                      </div>
+                      </div> 
+                        
+                        
+                        <div class="row">
+                   
+  
+                          <div class="col-sm-4">
+                              <span><a href="Qualification">
+                              <button type="button" class="btn btn-success" >Back</button>             
+                          </a></span>                    
+                              </div>
+                          <div class="col-sm-4">
+                              <span><a href="language">
+                              <button type="button" class="btn btn-success" >Next</button>             
+                          </a></span>                    
+                              </div>
+                              
+                            </div>
+        
+
+
+       
+    </div>
+    </div>
+</div>
+<ng-template #editTemp>
+  <form class="contactform" (ngSubmit)="formsubmit(f)" #f="ngForm">
+    <div class="d-flex flex-row align-items-center mb-4" class="form-group">
+      <div class="form-outline flex-fill mb-0"> 
+          
+      <span style="font-size: 11px;">Imapge size should be max 150x150</span>
+      </div></div>
+
+    <div class="row" class="form-group" >
+      <div class="col-sm-6"> 
+        <label>Position*</label>
+      <input type="text" [(ngModel)]="experi.Position" required name="Position" #Position="ngModel" class="form-control" placeholder="Position">
+      <span *ngIf="Position.invalid && Position.touched">it's required</span>
+    </div></div>
+
+      <div class="row" class="form-group">
+        <div class="col-sm-6">
+          <label>Responsibilities</label> 
+        <input type="text" [(ngModel)]="experi.Responsibilities" required name="Responsibilities" #Responsibilities="ngModel" class="form-control" placeholder="Responsibilities">
+        <span *ngIf="Responsibilities.invalid && Responsibilities.touched">it's required</span>  
+      </div></div>
+        <div class="row" class="form-group">
+          <div class="col-sm-6">
+            <label>Province</label> 
+          <input type="text" [(ngModel)]="experi.Province" required name="Province" #Province="ngModel" class="form-control" placeholder="Province">
+          <span *ngIf="Province.invalid && Province.touched">it's required</span>  
+        </div></div>
+          <div class="row" class="form-group">
+            <div class="col-sm-6">
+              <label>City</label> 
+            <input type="text" [(ngModel)]="experi.City" required name="City" #City="ngModel" class="form-control" placeholder="City">
+            <span *ngIf="City.invalid && City.touched">it's required</span>  
+          </div></div>
+            <div class="row" class="form-group">
+              <div class="col-sm-6">
+                <label>Country</label>
+                
+                  <select name="Country" id="countryList" [(ngModel)]="experi.Country" required  class="form-control">
+                      
+                      
+                        <option   *ngFor="let item of countryList"  >{{item}}</option>
+                      </select>
+                      <!-- <span *ngIf="Country.invalid && Country.touched">it's required</span> -->
+                </div> 
+              <!-- <input type="text" [(ngModel)]="experi.Country" required name="Country" #Country="ngModel" class="form-control" placeholder="Country"> -->
+              </div>
+              <div class="row" class="form-group">
+                <div class="col-sm-6">
+                  <label>ZipCode</label> 
+                <input type="number" [(ngModel)]="experi.ZipCode" required name="ZipCode" #ZipCode="ngModel" class="form-control" placeholder="ZipCode">
+                <span *ngIf="ZipCode.invalid && ZipCode.touched ">it's required</span>  
+              </div></div>
+                <!-- <div class="d-flex flex-row align-items-center mb-4" class="form-group">
+                  <div class="form-outline flex-fill mb-0"> 
+                    <label>Gender</label>
+                    
+                  <input type="radio" ngModel required name="Gender" #Gender="ngModel" class="form-control" placeholder="" value="male" >Male
+                  <input type="radio" ngModel required name="Gender" #Gender="ngModel" class="form-control" placeholder="" value="Female" >Female
+               
+                </div></div> -->
+                  <div class="row" class="form-group">
+                    <div class="col-sm-6"> 
+                      <label>OrganizationUrl*</label>
+                    <input type="text" [(ngModel)]="experi.OrganizationUrl" required name="OrganizationUrl" #OrganizationUrl="ngModel" class="form-control" placeholder="OrganizationUrl">
+                    <span *ngIf="OrganizationUrl.invalid && OrganizationUrl.touched ">it's required</span>   
+                  </div></div>
+                    <div class="row" class="form-group">
+                      <div class="col-sm-6"> 
+                        <label>OrganizationName*</label>
+                      <input type="text" [(ngModel)]="experi.OrganizationName" required name="OrganizationName" #OrganizationName="ngModel" class="form-control" placeholder="OrganizationName">
+                      <span *ngIf="OrganizationName.invalid && OrganizationName.touched ">it's required</span>   
+                    </div></div>
+                      <div class="row" class="form-group">
+                        <div class="col-sm-6"> 
+                          <label>ExperienceFrom</label>
+                        <input type="date" [(ngModel)]="experi.ExperienceFrom" required name="ExperienceFrom" #ExperienceFrom="ngModel" class="form-control" placeholder="ExperienceFrom">
+                        <span *ngIf="ExperienceFrom.invalid && ExperienceFrom.touched ">it's required</span>   
+                      </div></div>
+                        <div class="row" class="form-group">
+                          <div class="col-sm-6"> 
+                            <label>ExperienceTo</label>
+                          <input type="date" [(ngModel)]="experi.ExperienceTo" required name="ExperienceTo" #ExperienceTo="ngModel" class="form-control" placeholder="ExperienceTo">
+                          <span *ngIf="ExperienceTo.invalid && ExperienceTo.touched ">it's required</span>   
+                        </div></div>
+                          <!-- <div class="d-flex flex-row align-items-center mb-4" class="form-group">
+                            <div class="form-outline flex-fill mb-0"> 
+                              <label>Zipcode*</label>
+                            <input type="number" ngModel required name="ZipCode" #ZipCode="ngModel" class="form-control" placeholder="ZipCode">
+                            </div></div>                                       -->
+    <p class="form-submit">
+      <input type="submit" >
+      <!-- <input type="submit" class="mu-fulllength-btn-invalid" [class.mu-fulllength-btn]="f.valid" [disabled]="!f.valid"> -->
+    </p>
+  </form>
+</ng-template>
+</div>
+
+
+
+
+
+                  

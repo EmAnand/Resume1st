@@ -1,0 +1,213 @@
+
+<div class="container">
+                  <div *ngIf="!edit;else editTemp"  style="margin-bottom:20px">
+    &nbsp;
+                    <p class="text-center h4 fw-bold mb-5 mx-1 mx-md-4 mt-4" >Fill the form to Language
+                      <span style="float: right;">
+                        <a>
+                          <i class="fa fa-edit" (click)="editform()" style="font-size:32px;color:green"></i> 
+                        </a>
+                    
+                      </span>
+                    </p>
+                    
+          &nbsp;              
+                      <div  class="row">
+                        <div class="col-sm-3">
+                          <label>IsMotherTongue</label>
+                        </div>
+                        <div class="col-sm-3">
+                          {{item[0].IsMotherTongue}}
+                          </div>
+                        <div class="col-sm-3">
+                          <label>LanguageName</label>
+                        </div>
+                        <div class="col-sm-3">
+                          {{item[0].LanguageName}}
+                          </div>
+                        </div>
+                     
+                       <div  class="row">
+                        <div class="col-sm-3">
+                          <label>Listening</label>
+                        </div>
+                        <div class="col-sm-3">
+                          {{item[0].Listening}}
+                          </div>
+                        <!-- </div> -->
+                           <!-- <div>
+                            
+                <span class="fa fa-star" (click)="rateProduct($event)" id="1"></span>    
+                          
+                <span class="fa fa-star" (click)="rateProduct($event)" id="2"></span>
+                <span class="fa fa-star" (click)="rateProduct($event)" id="3"></span>
+                <span class="fa fa-star" (click)="rateProduct($event)" id="4"></span>
+                <span class="fa fa-star" (click)="rateProduct($event)" id="5"></span>
+                          </div>    -->
+                          <!-- </div>                        
+                      </div>
+                         -->
+                         <!-- <div  class="row"> -->
+                          <div class="col-sm-3">
+                            <label>Reading</label>
+                          </div>
+                          <div class="col-sm-3">
+                            {{item[0].Reading}}
+                            </div>
+                          </div>
+                          <div  class="row">
+                            <div class="col-sm-3">
+                              <label>Speaking</label>
+                            </div>
+                            <div class="col-sm-3">
+                              {{item[0].Speaking}}
+                              </div>
+                            <!-- </div> -->
+                            <!-- <div  class="row"> -->
+                              <div class="col-sm-3">
+                                <label>Writing</label>
+                              </div>
+                              <div class="col-sm-3">
+                                {{item[0].Writing}}
+                                </div>
+                              </div>
+
+                      <!-- <ng-container *ngFor="let rateVal of [5, 4, 3, 2, 1]">
+                        {{rateVal}}
+                        <input (click)="rateProduct(rateVal)" [id]="'star'+rateVal" [value]="rateVal-0.5" name="rating" type="radio" />
+                        <label class="full" [for]="'star'+rateVal"></label>
+                        {{rateVal-0.5}}
+                        <input (click)="rateProduct(rateVal-0.5)" [value]="rateVal-0.5" [id]="'halfstar'+rateVal" name="rating" type="radio" />
+                        <label class="half" [for]="'halfstar'+rateVal"></label>
+                      </ng-container>
+                      
+                      <hr/>
+                      
+                      <div class="crop"
+                           [style.width.px]="starWidth">
+                        <div style="width: 75px">
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span>
+                        </div>
+                      </div> -->
+                       
+                            
+    
+                      
+                        <div class="row">
+                      <div class="col-sm-6">
+                        <span><a href="experience">
+                        <button type="button" class="btn btn-success" >Back</button>             
+                    </a></span>                    
+                        </div>
+                      
+                      
+                      
+                    </div>
+                    
+    
+                  
+                  
+                </div>
+
+                
+                <ng-template #editTemp >
+                 
+
+                  <form [formGroup]="languageForm" (ngSubmit)="onSubmit()">
+ 
+                    <div class="row">
+                  
+                      <div class="col-sm-3">
+                      <label>IsMotherTongue</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <input type="text" [(ngModel)]="item[0].IsMotherTongue"  class="form-group" formControlName="IsMotherTongue">
+                    </div>
+                  
+                      <div class="col-sm-3">
+                      <label>LanguageName</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <select [(ngModel)]="item[0].LanguageName" name="LanguageName" formControlName="LanguageName">
+                    <option *ngFor="let item of lang">{{item}}</option>
+                      </select>
+                      </div></div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                      <label>Listening</label>
+                    </div>
+                    <div class="col-sm-3">
+                    <select [(ngModel)]="item[0].Listening" name="Listening" formControlName="Listening">
+                      <option *ngFor="let item of list">{{item}}</option>
+
+                    </select>
+                    </div>
+                      <div class="col-sm-3">
+                      <label>Reading</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <select [(ngModel)]="item[0].Reading" name="Reading" formControlName="Reading">
+                   <option *ngFor="let item of Read">{{item}}</option>
+                      </select>
+                      </div></div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                      <label>Speaking</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <select [(ngModel)]="item[0].Speaking" name="Speaking" formControlName="Speaking">
+                    <option *ngFor="let item of sprek">{{item}}</option>
+                      </select>
+                      </div>
+                  
+                      <div class="col-sm-3">
+                      <label>Writing</label>
+                    </div>
+                    <div class="col-sm-3">
+                      <select [(ngModel)]="item[0].Writing" name={{Write}}  formControlName="Writing">
+                        <!-- <option selected>---select---</option> -->
+                        <option *ngFor="let item of Write">{{item}}</option>
+                      </select>
+                      </div></div>
+                    <!-- <p>
+                      <label for="country">country </label>
+                      <select id="country" name="country"  formControlName="country">
+                        <option [ngValue]="c.id" *ngFor="let c of countryList">
+                          {{c.name}}
+                        </option>
+                      </select>
+                    </p> -->
+                   
+                     <!-- <div class="form-group" formArrayName="skills">
+                       <label>skills</label>
+                       <ng-container *ngFor="let skill in  languageForm.get('skills').controls">
+                        <input type="text"> 
+                      </ng-container>
+                     <button type="button" class="btn btn-primary" style="cursor: pointer;">+Add</button>
+                   -->
+                   <!-- <div class="form-group" formArrayName="skills">
+                     <label>experience</label>
+                     <ng-container *ngFor="let skill of languageForm.get('skills')"> 
+                       <input type="text">
+
+                     </ng-container>
+
+                   </div> -->
+                   
+
+                   
+                  
+                  <p>
+                      <button type="submit">Submit</button>
+                    </p>
+                   
+                  </form>
+
+                
+                </ng-template>
+                </div>
+               

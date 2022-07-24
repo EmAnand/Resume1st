@@ -1,0 +1,21 @@
+<div class="container" style="border: 1px solid black;padding: 40px;">
+    <div class="row">
+        <p class="text-center" style="border-bottom: 3px solid #01bafd;">Image Uploader </p>
+        <input type="file" class="btn btn-success" (change)="SaveFiles($event)">
+        <button class="mu-post-btn" (click)="uploadFiles()">Upload</button>
+        
+        <span>{{ uploadPercent | async }}</span><br>
+        
+        <div *ngIf="downloadURL">
+            <a target="_blank" [href]="downloadURL|async"><i class="fa fa-eye"></i></a> | <a (click)="CopyClipboard()" style="cursor: pointer;"><i class="fa fa-copy"></i> </a>
+            <div *ngIf="displayOnlySrc=='false'">
+                <input type="text" value="<img src='{{ downloadURL|async}}' class='dynImgDisplayCert' >" id="imgToCopy"  style="visibility:hidden;" >
+                <P>&lt;img src='{{ downloadURL|async}}' class='dynImgDisplayCert' /&gt;</P>
+            </div>
+            <div *ngIf="displayOnlySrc=='true'">
+                <input type="text" value="{{downloadURL|async}}" id="imgToCopy"  style="visibility:hidden;" >
+                <P>{{ downloadURL|async}}</P>
+            </div>
+        </div>
+    </div>
+</div>

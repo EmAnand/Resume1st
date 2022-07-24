@@ -1,0 +1,17 @@
+You can add global styles to this file, and also import other style files
+
+.ng-valid:not(form,fieldset){
+    border-left: 2px solid green;
+}
+
+.ng-invalid:not(form,fieldset){
+    border-left: 2px solid red;
+}
+
+.activeLink{
+    border-bottom: 3px solid lightgreen;
+}
+
+.form-control{
+    padding: 20px;
+}

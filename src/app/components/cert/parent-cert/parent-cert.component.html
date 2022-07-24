@@ -1,0 +1,107 @@
+
+<!-- Page breadcrumb -->
+<div class="container"  style="position: relative;height: 100vh;overflow-y: scroll;border:2px solid black;">
+      <div class="row">
+        <div class="col-md-12">
+          <section id="mu-page-breadcrumb">
+          <div class="mu-page-breadcrumb-area">
+            <!-- <h2>Certificate</h2> -->
+            <ol class="breadcrumb">
+             <!-- <li><a routerLink="/exams">Exams</a></li>             -->
+             <li class="active">{{certDetail?.Name}}</li>
+           </ol>
+          </div> 
+        </section>
+        </div>
+      </div>
+
+  <!-- Start contact  -->
+      <div class="row" *ngIf="data; else startTemplate">
+          <div class="col-md-10"  >
+          
+                    <span *ngIf="PaperQuesionNo>=0" style="font-weight: bold;font-size: 18px;border-bottom:5px solid black;">
+                      Ques - {{PaperQuesionNo+1}} 
+                    </span><br><br>
+                    <app-optional-question [data]="data" [isAnswerHidden]="isAnswerHidden" *ngIf="data.AnswerType=='MultiCorrect' || data.AnswerType=='SingleCorrect'"></app-optional-question>
+                    <app-statement-question [data]="data" *ngIf="data.AnswerType!='MultiCorrect' && data.AnswerType!='SingleCorrect'"></app-statement-question> 
+          </div>
+          <div class="col-md-2" >
+            <p style="align-self: center;"><b>Questions</b></p>
+              <div *ngFor="let id of questionIds;let i= index" style="display: inline;">
+                <input type="button" class="circle_btn"  [class.selectedbtn]="PaperQuesionNo==i" (click)="QuestionNumberButton($event)"  value="{{i+1}}">
+              </div>
+          </div>          
+           
+        
+      </div>
+      <div class="row" *ngIf="data" style="position: sticky;top: 90vh;bottom: 10px;background-color: black;width: 100%;padding: 10px;">
+        <div class="col-md-12" style="background-color: black;width: 100%;">
+            <button type="button" class="c_btn" (click)="Privious()"  [disabled]="PaperQuesionNo<1">Privious</button> &nbsp;
+            <button type="button" class="c_btn" (click)="Next()" [disabled]="PaperQuesionNo==questionIds.length-1">Next</button>
+            <button type="button" class="btn btn-success" style="float: right;">Save</button>
+        </div>
+      </div>
+    </div>
+
+<ng-template #startTemplate>
+  <!-- <span>Total Quesiton Paper is {{certDetail?.Keys.length}}</span>
+  <ul>
+    <li *ngFor="let key of certDetail?.Keys;let i= index">  
+      <i class="fa fa-check-circle" *ngIf="i==0"> Sample Paper <b>FREE</b></i>
+      <i class="fa fa-lock" *ngIf="i>0">Paper No. {{i}} <b>FREE</b></i>
+    </li>
+  </ul>
+  
+  <br>
+  <button (click)="startExam()">Start</button> -->
+  
+  <div class="card card-custom bg-white border-white border-0" style="height: 650px;">
+    <div class="card-custom-img" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/itexam-2fdbc.appspot.com/o/digits.jpg?alt=media&token=1fd2afa4-b4a6-4244-bf12-1826cbd2c9c8);"></div>
+    <div class="card-custom-avatar">
+      <img class="img-fluid"  src="{{certDetail?.ImgUrl}}" alt="{{certDetail?.Name}}" />
+    </div>
+    <div class="card-body" style="overflow-y: auto;padding:20px ;">
+      <h4 class="card-title" *ngFor="let arr of certDetail.Keys;let i=index">
+        <a class="hoverTheme" style="font-weight: bold;" (click)="selectPaper(i)">Start</a> => 
+        Question Paper No - {{i==0 ? 'Sample Paper':i}} (Questions - {{arr.split('#').length}})
+      </h4>
+      <p class="card-text">Once you will click on the start button, the paper will be started, you can check the correct answer any time</p>
+      <p class="card-text">If you are registered user then you can mark the question as 'confused'(To recheck at the end of paper) or 'revisit'(To revisit in the future)</p>
+      <p class="card-text">If you want any question or the answer is not correct then you can share your feedback, so that we will revisit the quesion.</p>
+    </div>
+    <!-- <div class="card-footer" style="background: inherit; border-color: inherit;bottom: 15px;float: right;margin-right: 50px;margin-top: 80px;">
+      <button class="mu-post-btn" style="padding: 20px 100px;" (click)="startExam()">Start</button>
+    </div> -->
+<!-- Start Model -->
+    <a style="cursor: pointer;color: blue;margin: 20px;" (click)="getDisplayGuide()" data-toggle="modal" data-target="#exampleModalLong">
+      View Certificate Guide
+    </a>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" *ngIf="guideData">
+          <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="exampleModalLongTitle">
+              <img src="{{guideData.SVG}}" style="width: 50px;" />
+              Training and Certificate<br>
+              <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: medium;">{{guideData.Name}}</span>
+            </h4>
+            
+            
+          </div>
+          <div class="modal-body" *ngIf="displayGuide">
+            <div [innerHtml]="guideData.Data"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Modell -->
+  </div>
+</ng-template>
+    
+  <!-- End contact  -->
+  

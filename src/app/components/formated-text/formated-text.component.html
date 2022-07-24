@@ -1,0 +1,79 @@
+<div *ngIf="isAdmin;else Error404">
+<!-- Page breadcrumb -->
+<section id="mu-page-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-page-breadcrumb-area">
+                    <h2>Formatted Text</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">FormattedText</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End breadcrumb -->
+
+<!-- Start contact  -->
+<section id="mu-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-contact-area">
+                    <!-- start title -->
+                    <div class="mu-title">
+                        <h2>Formatted Code</h2>
+                        <p>Can Get formatted text string to use directly to use as an html.</p>
+                    </div>
+                    <!-- end title -->
+                    <!-- start contact content -->
+                    <div class="mu-contact-content">
+                        <div class="row">
+                            <div class="col-md-12" *ngIf="ImageUploader">
+                                <app-image-uploader  displayOnlySrc="true" style="width: 50%;"></app-image-uploader>
+                            </div>
+                                <form class="contactform" (ngSubmit)="Submit(f)" #f="ngForm">
+                                    
+                                        <div class="col-md-12">
+                                    <input type="button" (click)="displayImageUploader()" value="Image uploader" class="btn btn-success"
+                                        style="float: right;font-size: 11px;padding: 2px;" /></div>
+                                        <div class="col-md-12">
+                                    <editor apiKey="a08fnnzoso82f6s84xyqpw27tk169s5patrfh9oyip4trjyc" ngModel required
+                                        name="blog" [init]="{
+                                        height: 500,
+                                        menubar: true,
+                                        plugins: [
+                                            'advlist autolink lists link image charmap print preview anchor',
+                                            'searchreplace visualblocks code fullscreen',
+                                            'insertdatetime media table paste code help wordcount'
+                                        ],
+                                        toolbar:
+                                            'undo redo | formatselect | bold italic backcolor | \
+                                            alignleft aligncenter alignright alignjustify | \
+                                            bullist numlist outdent indent | removeformat | help'
+                                        }"></editor></div>
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="mu-fulllength-btn-invalid"
+                                            [class.mu-fulllength-btn]="f.valid" [disabled]="!f.valid"
+                                            style="width: 250px;margin-top: 20px;"> Convert</button>
+                                    </div>
+                                </form>
+                                <div class="col-md-12">
+                                    <textarea rows="10" class="form-control">{{formatedText}}</textarea>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- end contact content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End contact  -->
+</div>
+<ng-template #Error404>
+    <app-not-found></app-not-found>
+</ng-template>

@@ -1,0 +1,62 @@
+{
+    "Language":[{
+        "IsMotherTongue": true,
+        "LanguageName": "hindi",
+        "Listening": 1, 
+        "Reading": 1,
+        "Speaking": 1,
+        "Writing": 1
+    },
+    {
+
+    }
+],
+
+    "PersonalInfo":{
+
+"AboutMe": "My name is Vikash kumar. I have complete B.tech in Computer Science",
+"AlternateEmail": "vikash@gmail.com",
+"AlternatePhoneNo": "1234567891",
+"City": "muzaffarpur",
+"CurrentCountry": "Indian",
+"DOB": "28/02/1995",
+"DisplayName": "Vikash kumar",
+"Email": "vikas4@gmail.com",
+"Gender": "Male",
+"Hobbies": "Watching a Movie",
+"Nationality": "Indian",
+"PhoneNO": 7533082342,
+"Province": "Muzaffarpur",
+"SummaryText": "Hello Eeveryone!",
+"ZipCode": 842002
+    },
+
+ "Qualification":{
+    "City": "New Delhi",
+    "Country": "India",
+    "HideFromCV": "",
+    "InstitutionName": "GNIOT Greater Noida",
+    "InstitutionUrl": "https://gniot.com",
+    "StillOn": "",
+    "Stream": "Computer Science Engineer",
+    "Study": "",
+    "StudyFrom": "",
+    "StudyTitle": "B.Tech",
+    "ZipCode": "840121"
+ },
+    "Experiernce":{
+        "City": "muzaffarpur",
+        "Country": "India",
+        "ExperienceFrom": 0,
+        "ExperienceTo": 0,
+        "OrganizationImg": "",
+        "OrganizationName": "GNIOT Greater Noida",
+        "OrganizationUrl": "https://Gniot.com",
+        "Position": "Software Developer",
+        "Province": "Muzaffarpur",
+        "Responsibilities": "Developer",
+        "StillWorking": false,
+        "ZipCode": 110019
+    }   
+
+}

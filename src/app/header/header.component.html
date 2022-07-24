@@ -1,0 +1,141 @@
+<!-- Start header  -->
+<header id="mu-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="mu-header-area">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="mu-header-top-left">
+                <div class="mu-top-email">
+                  <i class="fa fa-envelope"></i>
+                  <span>info@1stResume.com</span>
+                </div>
+                <div class="mu-top-phone">
+                  <a class="hoverTheme" routerLink="/write">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span>Write a Blog</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="mu-header-top-right">
+                <nav>
+                  <ul class="mu-top-social-nav">
+                    <li><a target="_blank" href="https://www.facebook.com/1st-Resume-102699778999047"><span class="fa fa-facebook"></span></a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/company/1st-resume"><span class="fa fa-linkedin"></span></a></li>
+                    <li><a target="_blank" href="https://www.youtube.com/channel/UCVWAWMnKQcUNHAX3hdvm3wA"><span class="fa fa-youtube"></span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End header  -->
+<!-- Start menu -->
+<section id="mu-menu">
+  <nav class="navbar navbar-default" role="navigation">  
+    <div class="container" >
+      <div class="navbar-header" >
+        <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+        <button style="left: 100px;" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- LOGO -->              
+        <!-- TEXT BASED LOGO -->
+        <a class="navbar-brand" routerLink="/" style="display: flex;justify-content: center; align-items: center;">
+           <img  src="../../assets/img/logo_new.png" style="height: 58px;border:2px soild black" alt="logo" /> 
+          
+        </a>
+        <!-- IMG BASED LOGO  -->
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">           
+          <li class="dropdown">
+            <a style="cursor: pointer;" class="dropdown-toggle" data-toggle="dropdown">Certifications <span class="fa fa-caret-down"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a routerLink="/certs/all">All Certification</a></li>                
+              <li><a routerLink="/certs/Azure">Azure Certification</a></li>                
+              <li><a routerLink="/certs/AWS">AWS Certification</a></li>                
+              <li><a routerLink="/certs/Google">Google Certifications</a></li>                
+            </ul>
+          </li>           
+          <li class="dropdown">
+            <a style="cursor: pointer;" class="dropdown-toggle" data-toggle="dropdown">Interview Q&A <span class="fa fa-caret-down"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a routerLink="/qans/all">All Technologies</a></li>                
+              <li><a routerLink="/qans/csharp">C#</a></li>
+              <li><a routerLink="/qans/java">Java</a></li>
+              <li><a routerLink="/qans/angular">Angular</a></li>
+              <li><a routerLink="/qans/react">React</a></li>
+              <li><a routerLink="/qans/javascript">JavaScript</a></li>
+            </ul>
+          </li>  
+          <li class="dropdown">
+            <a style="cursor: pointer;" class="dropdown-toggle" data-toggle="dropdown">Practice Tests <span class="fa fa-caret-down"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a routerLink="/tests/all">All Tests</a></li>                
+              <li><a routerLink="/tests/csharp">C#</a></li>
+              <li><a routerLink="/tests/java">Java</a></li>
+              <li><a routerLink="/tests/angular">Angular</a></li>
+              <li><a routerLink="/tests/react">React</a></li>
+              <li><a routerLink="/tests/javascript">JavaScript</a></li>
+            </ul>
+          </li>
+          <li><a routerLink="contact" routerLinkActive="activeLink" >Contact</a></li>
+          <li *ngIf="!loginService.isLoggedIn"><a routerLink="login" routerLinkActive="activeLink" ><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>               
+          <li *ngIf="!loginService.isLoggedIn"><a routerLink="register" routerLinkActive="activeLink"><i class="fa fa-user-plus"></i> Register</a></li>
+          
+          <!-- <li class="dropdown">
+            <a routerLink="profile" *ngIf="loginService.isLoggedIn" routerLinkActive="activeLink"> -->
+            <li class="dropdown" *ngIf="loginService.isLoggedIn">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="rounded-circle" style="max-width: 30px;max-height: 20px;" src="{{loginService.user.photoURL}}"/><strong> {{loginService.user.displayName}} </strong><span class="fa fa-caret-down"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a routerLink="/dashboard"><i class="fa fa-home fa-fw"></i> dashboard</a></li>
+                <li><a routerLink="/profile"><i class="fa fa-user fa-fw"></i> Profile</a></li>
+                <li><a routerLink="/write"><i class="fa fa-pencil-square-o"></i> Write an Article</a></li>
+                <li *ngIf="isAdmin"><a routerLink="/new"><i class="fa fa-plus fa-fw"></i> Add New Entry</a></li>
+                <li *ngIf="isAdmin"><a routerLink="formatedText"><i class="fa fa-file-code-o"></i> Get Formatted Text</a></li>
+                <!-- vikash add new line -->
+                <li *ngIf="isAdmin"><a routerLink="#"><i class="fa fa-file-code-o"></i> Create Resume</a></li>
+
+                <li class="divider"></li>
+                <li><a  *ngIf="loginService.isLoggedIn" (click)="logout()" style="cursor: pointer;">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+              </ul>
+            </li>  
+            <!-- </div> -->
+
+
+
+          <!-- </a></li>                -->
+          <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
+        </ul>                     
+      </div><!--/.nav-collapse -->        
+  </div>     
+  </nav>
+</section>
+<!-- End menu -->
+<!-- Start search box -->
+<div id="mu-search">
+  <div class="mu-search-area">      
+    <button class="mu-search-close"><span class="fa fa-close"></span></button>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">            
+          <form class="mu-search-form">
+            <input type="search" placeholder="Type Your Keyword(s) & Hit Enter">              
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End search box -->

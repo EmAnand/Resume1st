@@ -1,0 +1,25 @@
+:root{
+        --highlighted-star-color: "yellow"
+        
+}
+
+
+.crop {
+    overflow: hidden;
+  }
+.fa-star{
+    cursor: pointer;
+    font-size: 40px;
+    padding:10px;
+}  
+.fa-star-edit:hover{
+    color: yellow;
+    
+}
+/* .higlighted-star{
+    color: yellow
+} */
+.row{
+    padding: 8px;
+}
+

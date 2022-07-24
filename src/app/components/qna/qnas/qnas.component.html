@@ -1,0 +1,179 @@
+<!-- Page breadcrumb -->
+<section id="mu-page-breadcrumb">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-page-breadcrumb-area">
+            <h2>Interview Q&A</h2>
+            <ol class="breadcrumb">
+              <li><a routerLink="/">Home</a></li>
+              <li class="active">Interview Q&A</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End breadcrumb -->
+  <section id="mu-course-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-course-content-area">
+            <div class="row">
+              <div class="col-md-9">
+                <!-- start course content container -->
+                <div class="mu-course-container mu-blog-archive">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6" *ngFor="let cert of certs">
+                      <article class="mu-blog-single-item">
+                        <figure class="mu-blog-single-img">
+                          <a routerLink="/qna/{{cert.DocId}}/{{cert.Name.replaceAll(' ','-')}}"><img
+                              style="max-width: 750ox;max-height: 250px;" width="750" height="250" src="{{cert.ImgUrl}}"
+                              alt="img"></a>
+                          <figcaption class="mu-blog-caption">
+                            <h3><a routerLink="/qna/{{cert.Name}}">{{cert.Name}} : {{cert.Code}}</a></h3>
+                          </figcaption>
+                        </figure>
+                        <div class="mu-blog-meta">
+                          <span>By Admin 09 Jan 2021</span>
+                          <span><i class="fa fa-comments-o"></i>87</span>
+                        </div>
+                        <div class="mu-blog-description">
+                          <p>{{cert.Info}}</p>
+                          <a class="mu-read-more-btn" routerLink="/qna/{{cert.Name}}">Read More</a>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+                <!-- end course content container -->
+                <!-- start course pagination -->
+                <!-- <div class="mu-pagination">
+                   <nav>
+                     <ul class="pagination">
+                       <li>
+                         <a routerLink="/" aria-label="Previous">
+                           <span class="fa fa-angle-left"></span> Prev 
+                         </a>
+                       </li>
+                       <li class="active"><a routerLink="/">1</a></li>
+                       <li><a routerLink="/">2</a></li>
+                       <li><a routerLink="/">3</a></li>
+                       <li><a routerLink="/">4</a></li>
+                       <li><a routerLink="/">5</a></li>
+                       <li>
+                         <a routerLink="/" aria-label="Next">
+                          Next <span class="fa fa-angle-right"></span>
+                         </a>
+                       </li>
+                     </ul>
+                   </nav>
+                 </div> -->
+                <!-- end course pagination -->
+              </div>
+              <div class="col-md-3">
+                <!-- start sidebar -->
+                <aside class="mu-sidebar">
+                  <!-- start single sidebar -->
+                  <div class="mu-single-sidebar">
+                    <h3>Certifications</h3>
+                    <ul class="mu-sidebar-catg">
+                      <li><a routerLink="/">Microsoft</a></li>
+                      <li><a href="">Google</a></li>
+                      <li><a href="">AWS</a></li>
+                      <li><a href="">Azure</a></li>
+                    </ul>
+                  </div>
+                  <!-- end single sidebar -->
+                  <!-- start single sidebar -->
+                  <div class="mu-single-sidebar">
+                    <h3>Popular Links</h3>
+                    <div class="mu-sidebar-popular-courses">
+                      <div class="media">
+                        <div class="media-left">
+                          <a target="_blank"
+                            href="https://www.forbes.com/sites/forbestechcouncil/2021/06/10/16-tech-roles-that-are-experiencing-a-shortage-of-talent/?sh=69a7837d3973">
+                            <img class="media-object"
+                              src="https://firebasestorage.googleapis.com/v0/b/itexam-2fdbc.appspot.com/o/talent_shortage.JPG?alt=media&token=ec8c1e5b-b12c-4309-86b3-c78e4b94943e"
+                              alt="img">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <h4 class="media-heading"><a target="_blank"
+                              href="https://www.forbes.com/sites/forbestechcouncil/2021/06/10/16-tech-roles-that-are-experiencing-a-shortage-of-talent/?sh=69a7837d3973">
+                              Shortage of IT Professional</a></h4>
+                          <span class="popular-course-price">Forbes</span>
+                        </div>
+                      </div>
+                      <div class="media">
+                        <div class="media-left">
+                          <a target="_blank"
+                            href="https://www.indeed.com/career-advice/finding-a-job/top-growing-industries">
+                            <img class="media-object"
+                              src="https://firebasestorage.googleapis.com/v0/b/itexam-2fdbc.appspot.com/o/fastest_grow.JPG?alt=media&token=88da5a93-00ab-49e3-b5d0-beac46c14110"
+                              alt="img">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <h4 class="media-heading"><a target="_blank"
+                              href="https://www.indeed.com/career-advice/finding-a-job/top-growing-industries">IT
+                              is the fastest growing industry</a></h4>
+                          <span class="popular-course-price">Indeed</span>
+                        </div>
+                      </div>
+                      <div class="media">
+                        <div class="media-left">
+                          <a target="_blank" href="https://en.wikipedia.org/wiki/Great_Resignation">
+                            <img class="media-object"
+                              src="https://firebasestorage.googleapis.com/v0/b/itexam-2fdbc.appspot.com/o/great_resignation.JPG?alt=media&token=40837afb-4f99-477a-a870-646436ecdb6f"
+                              alt="img">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <h4 class="media-heading"><a target="_blank"
+                              href="https://en.wikipedia.org/wiki/Great_Resignation">New
+                              - The Great Resignation</a></h4>
+                          <span class="popular-course-price">Wiki</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end single sidebar -->
+                  <!-- start single sidebar -->
+                  <div class="mu-single-sidebar">
+                    <h3>Practice Tests</h3>
+                    <ul class="mu-sidebar-catg mu-sidebar-archives">
+                      <li><a routerLink="/">C# <span>(4)</span></a></li>
+                      <li><a href="">Javascript <span>(5)</span></a></li>
+                      <li><a href="">Angular <span>(5)</span></a></li>
+                      <li><a href="">React <span>(2)</span></a></li>
+                      <li><a href="">HTML5 <span>(1)</span></a></li>
+                      <li><a href="">CSS <span>(2)</span></a></li>
+                    </ul>
+                  </div>
+                  <!-- end single sidebar -->
+                  <!-- start single sidebar -->
+                  <div class="mu-single-sidebar">
+                    <h3>Future Blogs</h3>
+                    <div class="tag-cloud">
+                      <a routerLink="/">New Technologies</a>
+                      <a routerLink="/">Nodejs</a>
+                      <a routerLink="/">Frontend Tools</a>
+                      <a routerLink="/">Web Development</a>
+                      <a routerLink="/">Web Design</a>
+                      <a routerLink="/">Demand</a>
+                      <a routerLink="/">Overseas Clients</a>
+                      <a routerLink="/">Interview tips</a>
+                    </div>
+                  </div>
+                  <!-- end single sidebar -->
+                </aside>
+                <!-- / end sidebar -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,76 @@
+<!-- Page breadcrumb -->
+<section id="mu-page-breadcrumb">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-page-breadcrumb-area">
+            <h2>Profile</h2>
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li class="active">Profile</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End breadcrumb -->
+  
+  <!-- Start contact  -->
+  <section id="mu-contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-contact-area">
+            <!-- start title -->
+            <div class="mu-title">
+              <h2>Details</h2>
+            </div>
+            <!-- end title -->
+            <!-- start contact content -->
+            <div class="mu-contact-content">
+              <div class="row">
+                <div class="col-md-4">
+                    <div *ngIf="!edit;else editTemp">
+                        <img src="{{user.photoURL}}" class="rounded-circle">
+                        <br/>
+                        <br/>
+                        <p><b>Name : </b>{{user.displayName}}</p>
+                        <button class="btn btn-success" style="width: 100%;" (click)="ToEdit()">Edit</button>
+                    </div>
+                      <ng-template #editTemp>
+                    <form class="contactform" (ngSubmit)="formsubmit(f)" #f="ngForm">
+                      <div class="d-flex flex-row align-items-center mb-4" class="form-group">
+                        <div class="form-outline flex-fill mb-0"> 
+                            <img src="{{user.photoURL}}" *ngIf="!image" class="rounded-circle">
+                            <img src="{{image}}" *ngIf="image" class="rounded-circle">
+                        <input type="file" class="btn btn-success" style="width: 100%;" accept='image/*' name="files" ngModel (change)="SaveFiles($event)">
+                        <span style="font-size: 11px;">Imapge size should be max 150x150</span>
+                        </div></div>
+  
+                      <div class="d-flex flex-row align-items-center mb-4" class="form-group">
+                        <div class="form-outline flex-fill mb-0"> 
+                        <input type="text" ngModel required name="name" #name="ngModel" class="form-control" placeholder="your name">
+                        </div></div>
+  
+                      <p class="form-submit">
+                        <input type="submit" >
+                        <!-- <input type="submit" class="mu-fulllength-btn-invalid" [class.mu-fulllength-btn]="f.valid" [disabled]="!f.valid"> -->
+                      </p>
+                    </form>
+                </ng-template>
+                </div>
+                <div class="col-md-8">
+                  <div class="mu-contact-right">
+                    Other Details
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end contact content -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End contact  -->

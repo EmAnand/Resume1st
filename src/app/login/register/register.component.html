@@ -1,0 +1,83 @@
+<!-- Page breadcrumb -->
+<section id="mu-page-breadcrumb">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mu-page-breadcrumb-area">
+        <h2>Register</h2>
+        <ol class="breadcrumb">
+         <li><a routerLink="/">Home</a></li>            
+         <li class="active">Register</li>
+       </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End breadcrumb -->
+<div class="row">
+  <div class="col-md-12">
+<div class="mu-title" style="margin: 20px 0px;">
+<h2>Welcome!</h2>
+<p>Registered member could be able to perform lots of functionality like writing article, save you exam, score, wrong attempted Questions, also you will be able to mark the question as 'want to revisit' and filter based on toughness etc</p>
+</div>
+  </div></div>
+<section>
+    <div class="row">
+      <div class="col-md-4 col-lg-4"></div>
+              <div class="col-md-4 col-lg-4" style="margin:20px">
+
+                <!-- <p class="text-center h4 fw-bold mb-5 mx-1 mx-md-4 mt-4" >Fill the form to register</p> -->
+
+               
+                <form  (ngSubmit)="signup(f)" #f=ngForm >
+                  
+
+                  <div  class="form-group">
+                      <input type="text" placeholder="UserName"  #username="ngModel" id="username" class="form-control" name="username" ngModel required />
+                      <span  *ngIf="username.invalid && username.touched" class="errorDisplay" >  UserName is required</span>
+                      
+                  </div>
+
+                  <div  class="form-group">
+                      <input type="text" #FirstName="ngModel" id="FirstName" placeholder="First Name" class="form-control" name="FirstName"  ngModel required />
+                      <span *ngIf="FirstName.invalid && FirstName.touched" class="errorDisplay">  FirstName is required</span>
+                    </div>
+
+                  <div class="form-group">
+                      <input type="email" #email="ngModel" id="email" placeholder="Your Email" class="form-control" name="email" ngModel email  required/>
+                      <span *ngIf="email.invalid && email.touched" class="errorDisplay"> Email is Required</span>
+                    </div>
+
+                  <div  class="form-group" >
+                        <input type="number" #ContactNo="ngModel" placeholder="(xxx)-xxx-xxxx" id="ContactNo"                           class="form-control"  name="ContactNo"  ngModel contactValidator required/>
+                        <span *ngIf="ContactNo.invalid && ContactNo.touched" class="errorDisplay">Contact No is Required</span>
+                    </div>
+
+                  <div  class="form-group">
+                      <input type="password" #password="ngModel" placeholder="Password" class="form-control" id="password"                         name="password"  ngModel passwordValidator required  />
+                      <span *ngIf="password.invalid && password.touched" class="errorDisplay">Password must be mininum 6 digit long</span>
+                    </div>
+
+                  <div class="form-group">
+                      <input type="password" #ConfirmPassword="ngModel" placeholder="Repeat your password"                         passwordValidator id="ConfirmPassword" class="form-control"   name="ConfirmPassword" ngModel required /> 
+                      <span *ngIf="ConfirmPassword.invalid && ConfirmPassword.touched" class="errorDisplay">ConfirmPassword does not match </span>
+                    </div>
+
+
+                  <div class="ml-3">
+                    <input class="form-check-input" type="checkbox" checked="false" id="form2Example3c" >
+                      I agree all statements in  <a routerLink="terms">Terms of service</a>
+                  </div>
+
+                  <div  style="visibility: hidden;">
+                      <input type="number" #Otp="ngModel" id="Otp" class="form-control"   name="Otp" ngModel />
+                      
+                  </div>
+                  <div >
+                    <button type="submit" class="mu-post-btn" ><i class="fa fa-user-plus"></i> Register</button>
+                  </div>
+
+                </form>
+
+              </div>
+    </div>
+</section>

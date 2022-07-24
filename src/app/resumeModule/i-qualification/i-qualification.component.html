@@ -1,0 +1,248 @@
+
+    <div class="container">
+      <div class="row">
+        
+                <div *ngIf="!edit;else editTemp" style="margin-bottom:20px">
+  &nbsp;
+                  <p class="text-center h4 fw-bold mb-5 mx-1 mx-md-4 mt-4" >Fill the form to Qualification
+                    <span style="float: right;" >
+                      <a >
+                        <i class="fa fa-edit" (click)="editform()" style="font-size:32px;color:green"></i> 
+                      </a>
+                      
+                    </span>
+                  </p>
+  
+                 
+        &nbsp;          
+                    
+                  
+
+                      <div class="row border1">
+                        <div class="col-sm-3">
+                          Study*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.Study}}
+                        </div>
+                      <!-- </div> -->
+
+                      <!-- <div class="row"> -->
+                        <div class="col-sm-3">
+                          StudyTitle
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.StudyTitle}}
+                        </div>
+                      </div>
+                      <div class="row border1">
+                        <div class="col-sm-3">
+                          InstitutionUrl*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.InstitutionUrl}}
+                        </div>
+                      <!-- </div> -->
+                      <!-- <div class="row"> -->
+                        <div class="col-sm-3">
+                          InstitutionName*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.InstitutionName}}
+                        </div>
+                      </div>
+                      <div class="row border1">
+                        <div class="col-sm-3">
+                          City*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.City}}
+                        </div>
+                      <!-- </div> -->
+                      <!-- <div class="row"> -->
+                        <div class="col-sm-3">
+                          ZipCode*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.ZipCode}}
+                        </div>
+                      </div>
+                      <div class="row border1">
+                        <div class="col-sm-3">
+                          StudyFrom*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.StudyFrom}}
+                        </div>
+                      <!-- </div> -->
+                      <!-- <div class="row"> -->
+                        <div class="col-sm-3">
+                          StudyTo*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.StudyTo}}
+                        </div>
+                      </div>
+                      <div class="row border1">
+                        <div class="col-sm-3">
+                          Stream*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.Stream}}
+                        </div>
+                      <!-- </div> -->
+                      <!-- <div class="row"> -->
+                        <div class="col-sm-3">
+                          Country*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.Country}}
+                        </div>
+                      </div>
+                      <div class="row border1">
+                        <div class="col-sm-3">
+                          StillOn*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.StillOn}}
+                        </div>
+                      <!-- </div> -->
+                      <!-- <div class="row"> -->
+                        <div class="col-sm-3">
+                          HideFromCV*
+                        </div>
+                        <div class="col-sm-3">
+                          {{ab.HideFromCV}}
+                        </div>
+                      </div>
+
+                    <div class="row ">
+                      <div class="col-sm-6">
+                        <a href="info">
+                          <button type="button" class="btn btn-success" >Back</button>             
+                      </a>
+                        
+                    </div>
+
+                    <div class="sol-sm-6">
+                        <a href="experience">
+                        <button type="button" class="btn btn-success" >Next</button>             
+                    </a>                    
+                        </div>
+                        
+                          </div>
+                 
+  
+                </div>
+      </div>
+      <ng-template #editTemp>
+        <form class="contactform" (ngSubmit)="formsubmit(f)" #f="ngForm">
+          <div class="d-flex flex-row align-items-center mb-4" class="form-group">
+            <div class="form-outline flex-fill mb-0"> 
+                
+            <span style="font-size: 11px;">Imapge size should be max 150x150</span>
+            </div></div>
+      
+          <div class="row" class="form-group">
+            <div class="col-sm-6"> 
+              <label>Study*</label>
+            <input type="text" [(ngModel)]="ab.Study" required name="Study"  #Study="ngModel" class="form-control"
+             placeholder="Study">
+             <span *ngIf="Study.invalid && Study.touched">it's required</span>
+            </div></div>
+      
+            <div class="row" class="form-group">
+              <div class="col-sm-6">
+                <label>StudyTitle</label> 
+              <input type="text" [(ngModel)]="ab.StudyTitle" required name="StudyTitle" #StudyTitle="ngModel" class="form-control" placeholder="StudyTitle">
+              <span *ngIf="StudyTitle.invalid && StudyTitle.touched">it's required</span>  
+            </div></div>
+              <div class="row" class="form-group">
+                <div class="col-sm-6">
+                  <label>InstitutionUrl</label> 
+                <input type="text" [(ngModel)]="ab.InstitutionUrl" required name="InstitutionUrl" #InstitutionUrl="ngModel" class="form-control" placeholder="InstitutionUrl">
+                <span *ngIf="InstitutionUrl.invalid && InstitutionUrl.touched">it's required</span>  
+              </div></div>
+                <div class="row" class="form-group">
+                  <div class="col-sm-6">
+                    <label>InstitutionName</label> 
+                  <input type="text" [(ngModel)]="ab.InstitutionName" required name="InstitutionName" #InstitutionName="ngModel" class="form-control" placeholder="InstitutionName">
+                  <span *ngIf="InstitutionName.invalid && InstitutionName.touched">it's required</span>  
+                </div></div>
+                  <div class="row" class="form-group">
+                    <div class="col-sm-6"> 
+                      <label>StudyFrom*</label>
+                    <input type="date" [(ngModel)]="ab.StudyFrom" required name="StudyFrom" #StudyFrom="ngModel" class="form-control" placeholder="StudyFrom">
+                    <span *ngIf="StudyFrom.invalid && StudyFrom.touched">it's required</span>  
+                  </div></div>
+                    <div class="row" class="form-group">
+                      <div class="col-sm-6"> 
+                        <label>StudyTo*</label>
+                        
+                      <input type="text" [(ngModel)]="ab.StudyTo" required name="StudyTo" #StudyTo="ngModel" class="form-control" placeholder="StudyTo">
+                      <span *ngIf="StudyTo.invalid && StudyTo.touched">it's required</span>  
+                    </div></div>
+                  <div class="row" class="form-group">
+                    <div class="col-sm-6">
+                      <label>City</label> 
+                    <input type="text" [(ngModel)]="ab.City" required name="City" #City="ngModel" class="form-control" placeholder="City">
+                    <span *ngIf="City.invalid && City.touched">it's required</span>  
+                  </div></div>
+                    <div class="row" class="form-group">
+                      <div class="col-sm-6">
+                        <label>ZipCode</label> 
+                      <input type="number" [(ngModel)]="ab.ZipCode" required name="ZipCode" #ZipCode="ngModel" class="form-control" placeholder="ZipCode">
+                      <span *ngIf="ZipCode.invalid && ZipCode.touched">it's required</span>  
+                    </div></div>
+                      <!-- <div class="d-flex flex-row align-items-center mb-4" class="form-group">
+                        <div class="form-outline flex-fill mb-0"> 
+                          <label>Gender</label>
+                          
+                        <input type="radio" ngModel required name="Gender" #Gender="ngModel" class="form-control" placeholder="" value="male" >Male
+                        <input type="radio" ngModel required name="Gender" #Gender="ngModel" class="form-control" placeholder="" value="Female" >Female
+                     
+                      </div></div> -->
+                        
+                            <div class="row" class="form-group">
+                              <div class="col-sm-6"> 
+                                <label>Stream</label>
+                              <input type="text" [(ngModel)]="ab.Stream" required name="Stream" #Stream="ngModel" class="form-control" placeholder="Stream">
+                              <span *ngIf="Stream.invalid && Stream.touched">it's required</span>
+                            </div></div>
+                              <div class="row" class="form-group">
+                                <div class="col-sm-6"> 
+                                  <label>Country</label>
+                                <!-- <input type="text" [(ngModel)]="ab.Country" required name="Country" #Country="ngModel" class="form-control" placeholder="Country"> -->
+                                <select [(ngModel)]="ab.Country" required name="Country" #Country="ngModel" class="form-control" placeholder="Country">
+                                  <option *ngFor="let item of countryList" >{{item}}</option>
+                                </select>  
+                                <span *ngIf="Country.invalid && Country.touched">it's required</span>
+                              </div></div>
+                                <div class="row" class="form-group">
+                                  <div class="col-sm-6"> 
+                                    <label>StillOn*</label>
+                                  <!-- <input type="text" [(ngModel)]="ab.StillOn" required name="StillOn" #StillOn="ngModel" class="form-control" placeholder="StillOn"> -->
+                                  <!-- <ul [(ngModel)]="ab.StillOn" required name="StillOn" #StillOn="ngModel" class="form-control" placeholder="StillOn"> -->
+                                    <input type="checkbox" [(ngModel)]="ab.StillOn"  name="StillOn" #StillOn="ngModel" class="form-control" placeholder="StillOn">
+                                    
+
+                                </div></div> 
+                                  <div class="row" class="form-group">
+                                    <div class="col-sm-6"> 
+                                      <label>HideFromCV</label>
+                                    <input type="checkbox" [(ngModel)]="ab.HideFromCV"  name="HideFromCV" #HideFromCV="ngModel" class="form-control" placeholder="HideFromCV">
+                                    
+                                         
+                                           
+                                    <!-- <span *ngIf="HideFromCV.invalid && HideFromCV.touched">it's required</span> -->
+                                  </div></div> 
+                                                                      
+              <p class="form-submit">
+            <input type="submit" >
+            <!-- <input type="submit" class="mu-fulllength-btn-invalid" [class.mu-fulllength-btn]="f.valid" [disabled]="!f.valid"> -->
+          </p>
+        </form>
+      </ng-template>
+      </div>
+     
+     <div class="container"> </div>
